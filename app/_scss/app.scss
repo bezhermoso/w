@@ -1,0 +1,53 @@
+
+@import "foundation";
+
+#hero {
+  text-align: center;
+  padding-top: 100px;
+}
+
+section.screen-height {
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: 'Lobster Two', cursive;
+  color: #666666;
+}
+
+h1#nuptials-text {
+  font-size: rem-calc(90);
+  text-align: center;
+  font-style: italic;
+}
+
+h1#nuptials-date {
+  font-size: rem-calc(150);
+}
+
+section#venue {
+
+  background-color: #eee;
+
+  h2 {
+    font-size: rem-calc(50);
+  }
+
+  h3 {
+    font-size: rem-calc(25);
+  }
+
+  div.container {
+    height: 50vh;
+  }
+
+  #reception {
+      text-align: right;
+  }
+
+  img.venue-img {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+}
