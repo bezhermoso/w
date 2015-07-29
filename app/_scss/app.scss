@@ -3,7 +3,23 @@
 
 #hero {
   text-align: center;
-  padding-top: 100px;
+  padding-top: 20vh;
+
+  h1#nuptials-text {
+    font-size: rem-calc(90);
+    text-align: center;
+    font-style: italic;
+  }
+
+  h1#nuptials-date {
+    font-size: rem-calc(150);
+    margin-top: -40px;
+  }
+
+  h2 {
+    margin-top: -40px;
+  }
+
 }
 
 section.screen-height {
@@ -15,19 +31,12 @@ h1, h2, h3 {
   color: #666666;
 }
 
-h1#nuptials-text {
-  font-size: rem-calc(90);
-  text-align: center;
-  font-style: italic;
-}
-
-h1#nuptials-date {
-  font-size: rem-calc(150);
-}
-
 section#venue {
 
+  padding: 50px 0;
   background-color: #eee;
+
+  min-height: 100vh;
 
   h2 {
     font-size: rem-calc(50);
@@ -38,16 +47,16 @@ section#venue {
   }
 
   div.container {
-    height: 50vh;
+    min-height: 40vh;
   }
 
   #reception {
       text-align: right;
+      margin-top: 40px;
   }
 
   img.venue-img {
     width: 100%;
-    margin-top: 20px;
   }
 
 }
