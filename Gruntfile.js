@@ -119,7 +119,8 @@ module.exports = function (grunt) {
         httpGeneratedImagesPath: '/img/generated',
         outputStyle: 'expanded',
         raw: 'extensions_dir = "<%= yeoman.app %>/_bower_components"\n',
-        importPath: ['<%= yeoman.app %>/_bower_components/foundation/scss'/*, '<%= yeoman.app %>/_bower_components/fontawesome/scss'*/]
+        importPath: ['<%= yeoman.app %>/_bower_components/foundation/scss'/*, '<%= yeoman.app %>/_bower_components/fontawesome/scss'*/],
+        bundleExec: true
       },
       dist: {
         options: {
