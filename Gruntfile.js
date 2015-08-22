@@ -111,6 +111,8 @@ module.exports = function (grunt) {
         // If you're using global Sass gems, require them here.
         // require: ['singularity', 'jacket'],
         sassDir: '<%= yeoman.app %>/_scss',
+        fontsDir: '<%= yeoman.app %>/fonts',
+        httpFontsDir: 'fonts',
         cssDir: '.tmp/css',
         imagesDir: '<%= yeoman.app %>/img',
         javascriptsDir: '<%= yeoman.app %>/js',
