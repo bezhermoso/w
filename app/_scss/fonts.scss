@@ -3,4 +3,6 @@
 
 $font-path: '.';
 @include font-face("Din", font-files("din.woff","din.ttf","din.svg"), "din.eot", 700, normal);
+@include font-face("Din-Bold", font-files("din-bold.woff","din-bold.ttf","din-bold.svg"), "din-bold.eot", 700, normal);
+@include font-face("Gyre", font-files("gyre.woff","gyre.ttf","gyre.svg"), "gyre.eot", 700, normal);
 @include font-face("Tangerine-Bold", font-files("Tangerine-Bold.woff","Tangerine-Bold.ttf","Tangerine-Bold.svg"), "Tangerine-Bold.eot", 700, normal);

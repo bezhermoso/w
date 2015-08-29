@@ -1,10 +1,11 @@
-@import "_settings";
 @import "fonts";
 @import "foundation";
 
 $mint-green: #C2DFD4;
 $coral: #FE8A80;
-$shadow-color : #fff;
+$shadow-color : #FFFFFF;
+$gold: #FFE398;
+@import "_settings";
 
 body {
   /* Letterpress effect start */
@@ -13,34 +14,111 @@ body {
   /* end */
 }
 
-#nuptials {
-  font-family: "Tangerine-Bold";
-  text-align: center;
-  margin: 80px auto;
-  color: #76B29A;
-  font-size: rem-calc(110);
-  margin-bottom: -50px;
+
+.button {
+  text-shadow: none;
 }
 
-div#envelope {
-  width: 700px;
-  margin: 0 auto;
-  .green-box {
-    background-color: $mint-green;
-    height: 200px;
+.button.mint-button {
+  background-color: $mint-green;
+  color: darken($mint-green, 40);
+  font-family: $header-font-family-alt;
+}
 
-    h1 {
-      text-align: center;
-      font-size: rem-calc(110);
-      color: $white;
-      text-shadow: 5px 5px $coral;
+section#top {
+  height: 100vh;
+  #nuptials {
+    font-family: "Tangerine-Bold";
+    text-align: center;
+    margin: 180px auto;
+    color: #76B29A;
+    font-size: rem-calc(130);
+    margin-bottom: -50px;
+  }
+
+  div#envelope {
+    width: 700px;
+    margin: 0 auto;
+    .green-box {
+      background-color: $mint-green;
+      height: 200px;
+
+      h1 {
+        text-align: center;
+        font-family: $header-font-family;
+        font-size: rem-calc(130);
+        color: $white;
+        text-shadow: 5px 5px $coral;
+      }
+    }
+
+    .coral-box {
+      background-color: $coral;
+      height: 80px;
+      margin: 0 10px 0 10px;
+      border-top: 5px solid darken($coral, 10);
+      
+      .save-the-date {
+        margin-top: -25px;
+        font-size: rem-calc(25);
+        color: lighten($gold, 50);
+        text-transform: uppercase;
+        font-family: $header-font-family;
+        text-shadow: 1px 1px darken($gold, 10);
+        text-align: center;
+
+        span {
+          padding: 2px 20px;
+          display: inline-block;
+          background-color: $gold;
+          margin: 0 auto;
+          box-shadow: 2px 2px darken($gold, 30);
+        }
+      }
+    }
+  }
+}
+
+section#venue {
+  height: 100vh;
+  padding: 20px 0;
+  background-color: $coral;
+  color: $white;
+  text-shadow: 1px 1px darken($coral, 10);
+
+  hr {
+    border-color: darken($coral, 10);
+    box-shadow: 0 1px lighten($coral, 10);
+  }
+  address {
+    font-style: normal;
+    font-family: "Helvetica Neue";
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Din-Bold";
+    color: $white;
+  }
+  h2 {
+    text-transform: uppercase;
+  }
+
+  div.venue-part {
+    height: 45vh;
+    position: relative;
+    .button {
+      position: absolute;
+      bottom: 0;
     }
   }
 
-  .coral-box {
-    background-color: $coral;
-    height: 80px;
-    margin: 0 10px 0 10px;
-    border-top: 5px solid darken($coral, 10);
+  div#ceremony {
+  }
+
+  div#reception {
+    text-align: right;
+    .button {
+      right: 0;
+    }
   }
 }
