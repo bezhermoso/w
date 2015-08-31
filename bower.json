@@ -5,6 +5,7 @@
     "foundation": "~5.5.2",
     "scrollmagic": "~2.0.5",
     "jquery": "~2.1.4",
-    "gsap": "~1.17.0"
+    "gsap": "~1.17.0",
+    "modernizr": "~2.8.3"
   }
 }
