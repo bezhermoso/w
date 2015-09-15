@@ -57,6 +57,12 @@ section#top {
 
       .save-the-date {
         margin-top: -25px;
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin-right: auto;
+        margin-left: auto;
+        z-index: 1;
         font-size: rem-calc(25);
         color: lighten($gold, 50);
         text-transform: uppercase;
@@ -76,7 +82,7 @@ section#top {
   }
   @media #{$medium-up} {
     & {
-      height: 100vh;  
+//      height: 100vh;
       padding-top: 150px;
       #nuptials {
         margin: 0px auto;
@@ -131,8 +137,11 @@ section#venue {
   }
 
   div.venue-part {
+    
+    text-align: center;
+
     .button {
-      margin-top: 5px;
+      margin-top: 15px;
     }
 
     .venue-image-box {
@@ -153,6 +162,14 @@ section#venue {
         .button {
           margin-top: 50px;
         }
+
+        &#ceremony {
+          text-align: left;
+          .button {
+            left: 0;
+          }
+        }
+
         &#reception {
           text-align: right;
           .button {
