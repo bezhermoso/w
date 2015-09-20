@@ -43,3 +43,4 @@ node_modules
 .ruby-gemset
 .rvmrc
 vendor/bundle/*
+s3_website.yml

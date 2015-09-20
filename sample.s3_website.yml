@@ -1,0 +1,10 @@
+s3_id: 
+s3_secret: 
+s3_bucket: celebrateourlove.us
+s3_endpoint: ap-southeast-1
+gzip: true
+#cache_control:
+  #"images/*": public, max-age=604800
+  #"js/*": public, max-age=604800
+  #"css/*": public, max-age=604800
+  #"*": public, max-age=300
