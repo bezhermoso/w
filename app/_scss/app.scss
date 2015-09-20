@@ -155,7 +155,7 @@ section#venue {
   @media #{$medium-up} {
     & {
       height: 100vh;
-
+      margin-top: 30px;
       div.venue-part {
 
         height: 45vh;
