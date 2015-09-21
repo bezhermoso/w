@@ -26,6 +26,7 @@ var wideAnimations = function (controller) {
     var $envelope = $('#envelope');
     var $coralBox = $('.coral-box', $envelope);
     var venueSection = $('section#venue');
+    var $mainNav = $('#main-nav');
     var tweens = [];
 
     var timeline = new TimelineMax();
@@ -46,6 +47,7 @@ var wideAnimations = function (controller) {
 
     var timeline2 = new TimelineMax();
     timeline2.to($coralBox, 3, {height: '80px'});
+    timeline2.to($mainNav, 1, {display: 'block'});
     scene2.setTween([timeline2]);
     scene2.addTo(controller);
 
