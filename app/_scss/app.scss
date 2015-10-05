@@ -12,6 +12,7 @@ body {
   /* Letterpress effect start */
   text-shadow: 0 1px 1px $shadow-color;
   background-color: lighten($mint-green, 10);
+  min-width: 550px;
   /* end */
 }
 
@@ -40,6 +41,22 @@ section#top {
       z-index: 1;
     }
   }
+
+  #info {
+    text-align: center;
+    color: $dirty-gold;
+    #wedding-date {
+      color: $dirty-gold;
+      font-family: "Ecuyer";
+      font-size: rem-calc(30);
+      color: $coral;
+      margin-top: 20px;
+    }
+    #venue {
+      color: $dirty-gold;
+      font-family: "SortsMillGoudy-Regular";
+    }
+  }
 }
 
 #timer {
@@ -49,7 +66,7 @@ section#top {
   .segment {
     display: inline-block;
     span {
-      margin: 0 10px;
+      margin: 0 20px;
       font-size: rem-calc(100);
       display: block;
     }
