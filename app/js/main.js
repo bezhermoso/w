@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
 
-    var weddingDate = new Date("2016-04-10 14:00:00 +800"),
+    var weddingDate = new Date(Date.UTC(2016, 3, 10, 22, 0, 0)),
         $days = $('.days'),
         $hours = $('.hours'),
         $minutes = $('.minutes'),
@@ -9,7 +9,7 @@
 
     var updateDate = function () {
         var now = new Date(),
-            diff = Math.abs(weddingDate - now),
+            diff = weddingDate - now,
             totalSeconds = Math.floor(diff / 1000);
         
         var days = Math.floor(totalSeconds / 86400);
