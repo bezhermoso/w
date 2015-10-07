@@ -12,7 +12,7 @@ body {
   /* Letterpress effect start */
   text-shadow: 0 1px 1px $shadow-color;
   background-color: lighten($mint-green, 10);
-  min-width: 550px;
+  /*min-width: 550px;*/
   /* end */
 }
 
@@ -203,3 +203,87 @@ section#venue {
     }
   }
 }
+
+@media #{$small-only} {
+
+  section#top {
+    height: 100vh;
+
+    #nuptials {
+      padding-top: 10vh;
+    }
+
+    #info {
+      #wedding-date {
+        font-size: rem-calc(20);
+        margin-top: 10px;
+      }
+      #venue {
+      }
+    }
+  }
+
+  #timer {
+    margin-bottom: 20px;
+    .segment {
+      span {
+        font-size: rem-calc(50);
+      }
+      span.segment-label {
+        font-size: rem-calc(20);
+        margin-top: -10px;
+      }
+    }
+  }
+
+  .border-triangle {
+
+    $border-triangle-width: 80px;
+    $border-triangle-border-color: darken($mint-green, 0.1);
+
+    &.top-left {
+      border-width: $border-triangle-width $border-triangle-width 0 0;
+      top: 0;
+      left: 0;
+    }
+
+    &.top-right {
+      border-width: 0 $border-triangle-width $border-triangle-width 0;
+      top: 0;
+      right: 0;
+    }
+
+    &.bottom-left {
+      border-width: $border-triangle-width 0 0 $border-triangle-width;
+      bottom: 0;
+      left: 0;
+    }
+
+    &.bottom-right {
+      border-width: 0 0 $border-triangle-width $border-triangle-width;
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  section#venue {
+    .venue-item {
+      height: 100vh;
+      position: relative;
+      width: 100%;
+      .content {
+        top: 20px; bottom: 20px; right: 20px; left: 20px;
+        h1 {
+          font-family: "Ecuyer";
+          margin-top: 20vh;
+          font-size: rem-calc(20);
+        }
+        address {
+          font-size: rem-calc(15);
+          margin-bottom: 100px;
+        }
+      }
+    }
+  }
+}
+
