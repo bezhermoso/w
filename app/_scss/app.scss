@@ -86,41 +86,69 @@ section#top {
   }
 }
 
-.border-triangle {
+@mixin _triangle() {
   width: 0;
   height: 0;
   border-style: solid;
   position: absolute;
+}
 
-  $border-triangle-width: 200px;
-  $border-triangle-border-color: darken($mint-green, 0.1);
+@mixin triangle-top-left ($width, $color) {
+  @include _triangle();
+  border-width: $width $width 0 0;
+  border-color: $color transparent transparent transparent;
+  top: 0;
+  left: 0;
+}
 
-  &.top-left {
-    border-width: $border-triangle-width $border-triangle-width 0 0;
-    border-color: $border-triangle-border-color transparent transparent transparent;
+@mixin triangle-top-right ($width, $color) {
+    @include _triangle();
+    border-width: 0 $width $width 0;
+    border-color: transparent $color transparent transparent;
     top: 0;
+    right: 0;
+}
+
+@mixin triangle-bottom-right ($width, $color) {
+    @include _triangle();
+    border-width: 0 0 $width $width;
+    border-color: transparent transparent $color transparent;
+    bottom: 0;
+    right: 0;
+}
+
+@mixin triangle-bottom-left ($width, $color) {
+    @include _triangle();
+    border-width: $width 0 0 $width;
+    border-color: transparent transparent transparent $color;
+    bottom: 0;
     left: 0;
+}
+
+$border-triangle-width: 400px;
+$border-triangle-color: darken($mint-green, 5);
+$border-triangle-red: red($border-triangle-color);
+$border-triangle-green: green($border-triangle-color);
+$border-triangle-blue: blue($border-triangle-color);
+$border-triangle-alpha: rgba($border-triangle-red, $border-triangle-green, $border-triangle-blue, 0.5);
+
+.border-triangle {
+
+  z-index: -1;
+  &.top-left {
+    @include triangle-top-left($border-triangle-width, $border-triangle-alpha);
   }
 
   &.top-right {
-    border-width: 0 $border-triangle-width $border-triangle-width 0;
-    border-color: transparent $border-triangle-border-color transparent transparent;
-    top: 0;
-    right: 0;
+    @include triangle-top-right($border-triangle-width, $border-triangle-alpha);
   }
 
   &.bottom-left {
-    border-width: $border-triangle-width 0 0 $border-triangle-width;
-    border-color: transparent transparent transparent $border-triangle-border-color;
-    bottom: 0;
-    left: 0;
+    @include triangle-bottom-left($border-triangle-width, $border-triangle-alpha);
   }
 
   &.bottom-right {
-    border-width: 0 0 $border-triangle-width $border-triangle-width;
-    border-color: transparent transparent $border-triangle-border-color transparent;
-    bottom: 0;
-    right: 0;
+    @include triangle-bottom-right($border-triangle-width, $border-triangle-alpha);
   }
 }
 
@@ -137,6 +165,7 @@ $mint-green-blue: blue($mint-green-background);
 section#venue {
   .venue-item {
     height: 100vh;
+    min-height: 500px;
     position: relative;
     width: 100%;
     .content {
@@ -151,7 +180,7 @@ section#venue {
         font-family: "SortsMillGoudy-Regular";
         font-size: rem-calc(25);
         font-style: normal;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
       }
     }
     .background {
@@ -159,6 +188,7 @@ section#venue {
       background-position: center;
       width: 100%;
       height: 100vh;
+      min-height: 500px;
       position: absolute;
       &:after {
         content: "";
@@ -180,7 +210,7 @@ section#venue {
       }
     }
     .background {
-      background-image: url('/img/st-therese.jpg');
+      background-image: url('/img/st-therese-mono.jpg');
       &:after {
         background-color: rgba($coral-red, $coral-green, $coral-blue, 0.85);
       }
@@ -196,7 +226,7 @@ section#venue {
       }
     }
     .background {
-      background-image: url('/img/pavilion.jpg');
+      background-image: url('/img/pavilion-mono.jpg');
       &:after {
         background-color: rgba($mint-green-red, $mint-green-green, $mint-green-blue, 0.85);
       }
@@ -238,31 +268,26 @@ section#venue {
 
   .border-triangle {
 
-    $border-triangle-width: 80px;
-    $border-triangle-border-color: darken($mint-green, 0.1);
-
+    $mobile-triangle-width: 250px;
+    $mobile-triangle-color: darken($mint-green, 5);
+    $mobile-triangle-red: red($mobile-triangle-color);
+    $mobile-triangle-green: green($mobile-triangle-color);
+    $mobile-triangle-blue: blue($mobile-triangle-color);
+    $mobile-triangle-alpha: rgba($mobile-triangle-red, $mobile-triangle-green, $mobile-triangle-blue, 0.5);
     &.top-left {
-      border-width: $border-triangle-width $border-triangle-width 0 0;
-      top: 0;
-      left: 0;
+      @include triangle-top-left($mobile-triangle-width, $mobile-triangle-alpha);
     }
 
     &.top-right {
-      border-width: 0 $border-triangle-width $border-triangle-width 0;
-      top: 0;
-      right: 0;
+      @include triangle-top-right($mobile-triangle-width, $mobile-triangle-alpha);
     }
 
     &.bottom-left {
-      border-width: $border-triangle-width 0 0 $border-triangle-width;
-      bottom: 0;
-      left: 0;
+      @include triangle-bottom-left($mobile-triangle-width, $mobile-triangle-alpha);
     }
 
     &.bottom-right {
-      border-width: 0 0 $border-triangle-width $border-triangle-width;
-      bottom: 0;
-      right: 0;
+      @include triangle-bottom-right($mobile-triangle-width, $mobile-triangle-alpha);
     }
   }
 
