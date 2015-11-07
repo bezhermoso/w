@@ -5,12 +5,14 @@ $mint-green: #C2DFD4;
 $coral: #FE8A80;
 $shadow-color : #FFFFFF;
 $gold: #FFE398;
+$dirty-gold: #A1997A;
 @import "_settings";
 
 body {
   /* Letterpress effect start */
   text-shadow: 0 1px 1px $shadow-color;
-  background-color: #E6F1EC;
+  background-color: lighten($mint-green, 10);
+  /*min-width: 550px;*/
   /* end */
 }
 
@@ -25,162 +27,288 @@ body {
   font-family: $header-font-family-alt;
 }
 
-section#top {
-  /*display: none;*/
-  padding-top: 50px;
-  #nuptials {
-    font-family: "Tangerine-Bold";
-    text-align: center;
-    color: #76B29A;
-    font-size: rem-calc(55);
-    margin-bottom: -25px;
-  }
-  
-  div#envelope {
-    margin: 0 auto;
-    .green-box {
-      background-color: $mint-green;
-      height: 150px;
-      h1 {
-        text-align: center;
-        font-family: $header-font-family;
-        color: $white;
-        font-size: rem-calc(90);
-        text-shadow: 3px 3px $coral;
-      }
-    }
-
-    .coral-box {
-      background-color: $coral;
-      height: 80px;
-      border-top: 5px solid darken($coral, 10);
-
-      .save-the-date {
-        margin-top: -25px;
-        position: absolute;
-        right: 0;
-        left: 0;
-        margin-right: auto;
-        margin-left: auto;
-        z-index: 1;
-        font-size: rem-calc(25);
-        color: lighten($gold, 50);
-        text-transform: uppercase;
-        font-family: $header-font-family;
-        text-shadow: 1px 1px darken($gold, 10);
-        text-align: center;
-
-        span {
-          padding: 2px 20px;
-          display: inline-block;
-          background-color: $gold;
-          margin: 0 auto;
-          box-shadow: 2px 2px darken($gold, 30);
-        }
-      }
-    }
-  }
-  @media #{$medium-up} {
-    & {
-//      height: 100vh;
-      padding-top: 150px;
-      #nuptials {
-        margin: 0px auto;
-        font-size: rem-calc(130);
-        margin-bottom: -50px;
-      }
-
-      div#envelope {
-        width: 700px;
-        .green-box {
-          height: 200px;
-          h1 {
-            text-align: center;
-            font-family: $header-font-family;
-            font-size: rem-calc(130);
-            color: $white;
-            text-shadow: 5px 5px $coral;
-          } 
-        }
-        .coral-box {
-          margin: 0 10px 0 10px;
-        }
-      }
-    }
-  }
-
-  
+.button.coral-button {
+  background-color: lighten($coral, 10);
+  color: darken($coral, 10);
+  font-family: $header-font-family-alt;
 }
+
+section#top {
+  height: 100vh;
+
+  #nuptials {
+    text-align: center;
+    padding-top: 25vh;
+    h2 {
+      font-family: "SortsMillGoudy-Regular";
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: $dirty-gold;
+      z-index: 1;
+    }
+  }
+
+  #info {
+    text-align: center;
+    color: $dirty-gold;
+    #wedding-date {
+      color: $dirty-gold;
+      font-family: "Ecuyer";
+      font-size: rem-calc(30);
+      color: $coral;
+      margin-top: 20px;
+    }
+    #venue {
+      color: $dirty-gold;
+      font-family: "SortsMillGoudy-Regular";
+    }
+  }
+}
+
+#timer {
+  font-family: "Ecuyer";
+  color: $coral;
+  margin-bottom: 40px;
+  .segment {
+    display: inline-block;
+    span {
+      margin: 0 20px;
+      font-size: rem-calc(100);
+      display: block;
+    }
+    span.segment-label {
+      display: block;
+      font-size: rem-calc(40);
+      margin-top: -30px;
+      color: darken($coral, 0);
+      font-family: "VeryBerryPro-Regular";
+    }
+  }
+}
+
+@mixin _triangle() {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+}
+
+@mixin triangle-top-left ($width, $color) {
+  @include _triangle();
+  border-width: $width $width 0 0;
+  border-color: $color transparent transparent transparent;
+  top: 0;
+  left: 0;
+}
+
+@mixin triangle-top-right ($width, $color) {
+    @include _triangle();
+    border-width: 0 $width $width 0;
+    border-color: transparent $color transparent transparent;
+    top: 0;
+    right: 0;
+}
+
+@mixin triangle-bottom-right ($width, $color) {
+    @include _triangle();
+    border-width: 0 0 $width $width;
+    border-color: transparent transparent $color transparent;
+    bottom: 0;
+    right: 0;
+}
+
+@mixin triangle-bottom-left ($width, $color) {
+    @include _triangle();
+    border-width: $width 0 0 $width;
+    border-color: transparent transparent transparent $color;
+    bottom: 0;
+    left: 0;
+}
+
+$border-triangle-width: 400px;
+$border-triangle-color: darken($mint-green, 5);
+$border-triangle-red: red($border-triangle-color);
+$border-triangle-green: green($border-triangle-color);
+$border-triangle-blue: blue($border-triangle-color);
+$border-triangle-alpha: rgba($border-triangle-red, $border-triangle-green, $border-triangle-blue, 0.5);
+
+.border-triangle {
+
+  z-index: -1;
+  &.top-left {
+    @include triangle-top-left($border-triangle-width, $border-triangle-alpha);
+  }
+
+  &.top-right {
+    @include triangle-top-right($border-triangle-width, $border-triangle-alpha);
+  }
+
+  &.bottom-left {
+    @include triangle-bottom-left($border-triangle-width, $border-triangle-alpha);
+  }
+
+  &.bottom-right {
+    @include triangle-bottom-right($border-triangle-width, $border-triangle-alpha);
+  }
+}
+
+$coral-background: lighten($coral, 0.2);
+$coral-red: red($coral-background);
+$coral-green: green($coral-background);
+$coral-blue: blue($coral-background);
+
+$mint-green-background: lighten($mint-green, 0.2);
+$mint-green-red: red($mint-green-background);
+$mint-green-green: green($mint-green-background);
+$mint-green-blue: blue($mint-green-background);
 
 section#venue {
-  padding: 20px 0;
-  background-color: $coral;
-  color: $white;
-  text-shadow: 1px 1px darken($coral, 10);
-
-
-  hr {
-    border-color: darken($coral, 10);
-    box-shadow: 0 1px lighten($coral, 10);
-  }
-  address {
-    font-style: normal;
-    font-family: "Helvetica Neue";
-  }
-
-  h1, h2, h3, h4 {
-    font-family: "Din-Bold";
-    color: $white;
-  }
-  h2 {
-    text-transform: uppercase;
-  }
-
-  div.venue-part {
-    
-    text-align: center;
-
-    .button {
-      margin-top: 15px;
-    }
-
-    .venue-image-box {
-      img {
-        border: 3px solid darken($coral, 5);
+  .venue-item {
+    height: 100vh;
+    min-height: 500px;
+    position: relative;
+    width: 100%;
+    .content {
+      position: absolute;
+      top: 20px; bottom: 20px; right: 20px; left: 20px;
+      text-align: center;
+      h1 {
+        font-family: "Ecuyer";
+        margin-top: 30vh;
       }
-      display: none;
+      address {
+        font-family: "SortsMillGoudy-Regular";
+        font-size: rem-calc(25);
+        font-style: normal;
+        margin-bottom: 50px;
+      }
+    }
+    .background {
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100vh;
+      min-height: 500px;
+      position: absolute;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+    }
+  }
+  #ceremony {
+    .content {
+      border: 4px solid darken($coral, 40);
+      text-shadow: 0 1px 1px $coral;
+      color: darken($coral, 40);
+      h1 {
+        color: darken($coral, 40);
+      }
+    }
+    .background {
+      background-image: url('/img/st-therese-mono.jpg');
+      &:after {
+        background-color: rgba($coral-red, $coral-green, $coral-blue, 0.85);
+      }
+    }
+  }
+  #reception {
+    .content {
+      border: 4px solid darken($mint-green, 40);
+      text-shadow: 0 1px 1px $mint-green;
+      color: darken($mint-green, 40);
+      h1 {
+        color: darken($mint-green, 40);
+      }
+    }
+    .background {
+      background-image: url('/img/pavilion-mono.jpg');
+      &:after {
+        background-color: rgba($mint-green-red, $mint-green-green, $mint-green-blue, 0.85);
+      }
+    }
+  }
+}
+
+@media #{$small-only} {
+
+  section#top {
+    height: 100vh;
+
+    #nuptials {
+      padding-top: 10vh;
+    }
+
+    #info {
+      #wedding-date {
+        font-size: rem-calc(20);
+        margin-top: 10px;
+      }
+      #venue {
+      }
     }
   }
 
-  @media #{$medium-up} {
-    & {
+  #timer {
+    margin-bottom: 20px;
+    .segment {
+      span {
+        font-size: rem-calc(50);
+      }
+      span.segment-label {
+        font-size: rem-calc(20);
+        margin-top: -10px;
+      }
+    }
+  }
+
+  .border-triangle {
+
+    $mobile-triangle-width: 250px;
+    $mobile-triangle-color: darken($mint-green, 5);
+    $mobile-triangle-red: red($mobile-triangle-color);
+    $mobile-triangle-green: green($mobile-triangle-color);
+    $mobile-triangle-blue: blue($mobile-triangle-color);
+    $mobile-triangle-alpha: rgba($mobile-triangle-red, $mobile-triangle-green, $mobile-triangle-blue, 0.5);
+    &.top-left {
+      @include triangle-top-left($mobile-triangle-width, $mobile-triangle-alpha);
+    }
+
+    &.top-right {
+      @include triangle-top-right($mobile-triangle-width, $mobile-triangle-alpha);
+    }
+
+    &.bottom-left {
+      @include triangle-bottom-left($mobile-triangle-width, $mobile-triangle-alpha);
+    }
+
+    &.bottom-right {
+      @include triangle-bottom-right($mobile-triangle-width, $mobile-triangle-alpha);
+    }
+  }
+
+  section#venue {
+    .venue-item {
       height: 100vh;
-      margin-top: 30px;
-      div.venue-part {
-
-        height: 45vh;
-        .button {
-          margin-top: 50px;
+      position: relative;
+      width: 100%;
+      .content {
+        top: 20px; bottom: 20px; right: 20px; left: 20px;
+        h1 {
+          font-family: "Ecuyer";
+          margin-top: 20vh;
+          font-size: rem-calc(20);
         }
-
-        &#ceremony {
-          text-align: left;
-          .button {
-            left: 0;
-          }
-        }
-
-        &#reception {
-          text-align: right;
-          .button {
-            right: 0;
-          }
-        }
-
-        .venue-image-box {
-          display: block;
+        address {
+          font-size: rem-calc(15);
+          margin-bottom: 100px;
         }
       }
     }
   }
 }
+

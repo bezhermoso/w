@@ -6,3 +6,9 @@ $font-path: '.';
 @include font-face("Din-Bold", font-files("din-bold.woff","din-bold.ttf","din-bold.svg"), "din-bold.eot", 700, normal);
 @include font-face("Gyre", font-files("gyre.woff","gyre.ttf","gyre.svg"), "gyre.eot", 700, normal);
 @include font-face("Tangerine-Bold", font-files("Tangerine-Bold.woff","Tangerine-Bold.ttf","Tangerine-Bold.svg"), "Tangerine-Bold.eot", 700, normal);
+
+@include font-face("VeryBerryPro-Regular", font-files("VeryBerryPro-Regular.woff","VeryBerryPro-Regular.ttf","VeryBerryPro-Regular.svg"), "VeryBerryPro-Regular.eot", 700, normal);
+@include font-face("Ecuyer", font-files("Ecuyer.woff","Ecuyer.ttf","Ecuyer.svg"), "Ecuyer.eot", 700, normal);
+@include font-face("SortsMillGoudy-Regular", font-files("SortsMillGoudy-Regular.woff","SortsMillGoudy-Regular.ttf","SortsMillGoudy-Regular.svg"), "SortsMillGoudy-Regular.eot", 700, normal);
+
+

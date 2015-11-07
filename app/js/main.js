@@ -1,54 +1,36 @@
-var isNarrow = function () {
-    return $('#narrow-detector').is(':visible');
-};
-(function($){
-    var wideController = new ScrollMagic.Controller();
-    var narrowController = new ScrollMagic.Controller(narrowController);
-    
-    $(document).ready(function(){
-        wideAnimations(wideController);
-        narrowAnimations(narrowController);
-    });
+(function ($) {
+    "use strict";
+
+    var weddingDate = new Date(Date.UTC(2016, 3, 10, 22, 0, 0)),
+        $days = $('.days'),
+        $hours = $('.hours'),
+        $minutes = $('.minutes'),
+        $seconds = $('.seconds');
+
+    var updateDate = function () {
+        var now = new Date(),
+            diff = weddingDate - now,
+            totalSeconds = Math.floor(diff / 1000);
+        
+        var days = Math.floor(totalSeconds / 86400);
+        totalSeconds -= days * 86400;
+
+        var hours = Math.floor(totalSeconds / 3600) % 24;
+        totalSeconds -= hours * 3600;
+
+        var minutes = Math.floor(totalSeconds / 60) % 60;
+        totalSeconds -= minutes * 60;
+
+        var seconds = totalSeconds % 60;
+
+        $days.text(days);
+        $hours.text(hours);
+        $minutes.text(minutes);
+        $seconds.text(seconds);
+    };
+
+    updateDate();
+    setInterval(updateDate, 1000);
+
 
 })(jQuery);
-
-var wideAnimations = function (controller) {
-    var trigger = '#top';
-    var pin = '#top';
-
-    var scene1 = new ScrollMagic.Scene({
-        triggerElement: trigger,
-        triggerHook: 0,
-        duration: 1000
-    }).setPin(pin);
-    //
-    //
-    var $envelope = $('#envelope');
-    var $coralBox = $('.coral-box', $envelope);
-    var venueSection = $('section#venue');
-    var tweens = [];
-
-    var timeline = new TimelineMax();
-
-    timeline.to($envelope, 1, { width: '100%'});
-    timeline.to($coralBox, 1, { padding: 0, margin: 0});
-    timeline.to($coralBox, 5, { height: '100vh'}, 3);
-    timeline.to($coralBox, 5, { position: 'absolute', right: 0, left: 0}, 3);
-
-    scene1.setTween([timeline]);
-    scene1.addTo(controller);
-
-    var scene2 = new ScrollMagic.Scene({
-        triggerElement: '#venue',
-        triggerHook: 0,
-        duration: 500
-    }).setPin('#venue');
-
-    var timeline2 = new TimelineMax();
-    timeline2.to($coralBox, 3, {height: '80px'});
-    scene2.setTween([timeline2]);
-    scene2.addTo(controller);
-
-};
-
-var narrowAnimations = function () {};
