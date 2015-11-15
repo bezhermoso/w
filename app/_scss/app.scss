@@ -16,6 +16,10 @@ body {
   /* end */
 }
 
+h1 {
+  font-family: "Ecuyer";
+}
+
 
 .button {
   text-shadow: none;
@@ -312,3 +316,53 @@ section#venue {
   }
 }
 
+$balloon-color: darken($mint-green, 2);
+$balloon-red: red($balloon-color);
+$balloon-green: green($balloon-color);
+$balloon-blue: blue($balloon-color);
+$balloon-alpha: rgba($balloon-red, $balloon-green, $balloon-blue, 50);
+
+#tourist-balloon {
+  display: block;
+  position: fixed;
+  background-color: $mint-green;
+  color: $white;
+  padding: 10px;
+  width: 200px;
+  font-size: 16px;
+  /*box-shadow: 0px 0px 5px $balloon-alpha;*/
+  box-shadow: 2px 2px darken($mint-green, 20);
+  bottom: 10px;
+  right: 10px;
+  text-shadow: none;
+}
+
+section#accomodations {
+  padding: 50px;
+  h1 {
+
+    text-align: center;
+    color: darken($coral, 10);
+
+    &.under-glyph {
+      margin-top: 10px;
+    }
+  }
+}
+
+div#naia-notice {
+  position: fixed;
+  background-color: #E64949;
+  text-shadow: none;
+  font-size: rem-calc(14);
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 20px;
+  color: $white;
+   a {
+     color: $white;
+     text-decoration: underline;
+   }
+}

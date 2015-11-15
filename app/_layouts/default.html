@@ -12,11 +12,21 @@
         <!-- endbuild -->
     </head>
     <body>
+    <div id="naia-notice" style="display: none;">
+        <div class="row">
+        <div class="large-12">
+        If travelling to the Philippines, please avoid connecting flights to Ninoy Aquino International Airport (NAIA) in Manila.
+        <a href="http://www.cnn.com/2015/11/04/aviation/philippines-airport-bullet-bag-scam-tanim-bala/" target="_blank">Read more</a>
+        <a class="right dismiss-naia" href="javascript:void(0);">Dismiss</a>
+        </div>
+        </div>
+    </div>
     <div class="site">
       {{ content }}
     </div>
     <div class="show-for-small-only" id="narrow-detector"></div>
     <!-- build:js(app) /js/scripts.js -->
+    <script src="/_bower_components/cookies-js/dist/cookies.js"></script>
     <script src="/_bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/_bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
     <script src="/_bower_components/gsap/src/uncompressed/TweenMax.js"></script>
