@@ -8,6 +8,8 @@ $gold: #FFE398;
 $dirty-gold: #A1997A;
 @import "_settings";
 
+@import "nav";
+
 body {
   /* Letterpress effect start */
   text-shadow: 0 1px 1px $shadow-color;
@@ -20,6 +22,11 @@ h1 {
   font-family: "Ecuyer";
 }
 
+section#banner {
+  background-image: url('/img/event-banner.png');
+  background-size: 100% auto;
+  height: 100vh;
+}
 
 .button {
   text-shadow: none;

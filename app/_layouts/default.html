@@ -8,19 +8,34 @@
         <!-- build:css({app,.tmp}) /css/main.css -->
         <!-- Custom CSS -->
         <link href='http://fonts.googleapis.com/css?family=Lobster+Two:400,700italic,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/_bower_components/animate.css/animate.css">
         <link rel="stylesheet" href="/css/app.css">
+        <script type="text/javascript" src="/_bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
     </head>
     <body>
-    <div id="naia-notice" style="display: none;">
-        <div class="row">
-        <div class="large-12">
-        If travelling to the Philippines, please avoid connecting flights to Ninoy Aquino International Airport (NAIA) in Manila.
-        <a href="http://www.cnn.com/2015/11/04/aviation/philippines-airport-bullet-bag-scam-tanim-bala/" target="_blank">Read more</a>
-        <a class="right dismiss-naia" href="javascript:void(0);">Dismiss</a>
-        </div>
-        </div>
-    </div>
+    <!--<div id="naia-notice" style="display: none;">-->
+        <!--<div class="row">-->
+        <!--<div class="large-12">-->
+        <!--If travelling to the Philippines, please avoid connecting flights to Ninoy Aquino International Airport (NAIA) in Manila.-->
+        <!--<a href="http://www.cnn.com/2015/11/04/aviation/philippines-airport-bullet-bag-scam-tanim-bala/" target="_blank">Read more</a>-->
+        <!--<a class="right dismiss-naia" href="javascript:void(0);">Dismiss</a>-->
+        <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<nav id="main-nav" class="nav">-->
+        <!--<div class="content">-->
+        <!--<div data-magellan-expedition="fixed" class="nav">-->
+            <!--<dl class="sub-nav">-->
+                <!--<dd data-magellan-arrival="venue"><a href="#venue">Venue</a></dd>-->
+                <!--<dd data-magellan-arrival="entourage"><a href="#entourage">Our Entourage</a></dd>-->
+                <!--<dd data-magellan-arrival="guest-info"><a href="#guest-info">Guest Information</a></dd>-->
+                <!--<dd data-magellan-arrival="rsvp"><a href="#rsvp">RSVP</a></dd>-->
+                <!--<dd data-magellan-arrival="contact"><a href="#contact">Contact Us</a></dd>-->
+            <!--</dl>-->
+        <!--</div>-->
+        <!--</div>-->
+    <!--</nav>-->
     <div class="site">
       {{ content }}
     </div>
@@ -28,10 +43,16 @@
     <!-- build:js(app) /js/scripts.js -->
     <script src="/_bower_components/cookies-js/dist/cookies.js"></script>
     <script src="/_bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/_bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="/_bower_components/foundation/js/foundation.js"></script>
+    <!--<script src="/_bower_components/foundation/js/foundation/foundation.magellan.js"></script>-->
     <script src="/_bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
     <script src="/_bower_components/gsap/src/uncompressed/TweenMax.js"></script>
     <script src="/_bower_components/gsap/src/uncompressed/TimelineMax.js"></script>
     <script src="/_bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+    <script type="text/javascript">
+        $(document).foundation();
+    </script>
     <script src="/js/main.js"></script>
     <!-- endbuild -->
     </body>
