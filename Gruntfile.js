@@ -111,7 +111,7 @@ module.exports = function (grunt) {
         // If you're using global Sass gems, require them here.
         // require: ['singularity', 'jacket'],
         sassDir: '<%= yeoman.app %>/_scss',
-        fontsDir: '<%= yeoman.app %>/fonts',
+        fontsDir: ['<%= yeoman.app %>/fonts', '<% yeoman.app %>/_bower_components/font-awesome/fonts'],
         httpFontsDir: 'fonts',
         cssDir: '.tmp/css',
         imagesDir: '<%= yeoman.app %>/img',
@@ -121,7 +121,7 @@ module.exports = function (grunt) {
         httpGeneratedImagesPath: '/img/generated',
         outputStyle: 'expanded',
         raw: 'extensions_dir = "<%= yeoman.app %>/_bower_components"\n',
-        importPath: ['<%= yeoman.app %>/_bower_components/foundation/scss'/*, '<%= yeoman.app %>/_bower_components/fontawesome/scss'*/],
+        importPath: ['<%= yeoman.app %>/_bower_components/foundation/scss', '<%= yeoman.app %>/_bower_components/font-awesome/scss'],
         bundleExec: true
       },
       dist: {

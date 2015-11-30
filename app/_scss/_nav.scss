@@ -1,15 +1,49 @@
 
-.nav {
-  .nav {
-    background-color: transparent;
-  }
+.nav-wrapper {
+  transition: all 0.3s ease-in-out;
+  /*border-bottom: 3px solid $white;*/
+  background-color: $white;
+  .top-bar {
+    .top-bar-section {
+      ul {
+        display: table;
+        margin: 0 auto;
+        width: 600px;
 
-  .sub-nav {
-    margin: 0 auto;
-    width: 920px;
-  }
+        li {
+          background-color: transparent;
+          display: table-cell;
 
-  [data-magellan-expedition-clone] {
-    display: none;
+          &.toggle-topbar {
+            display: none;
+          }
+
+          a {
+            color: darken($mint-green, 40);
+            font-size: rem-calc(16);
+          }
+        }
+      }
+    }
+
   }
+  &.transparent {
+    border-bottom: 3px solid $white;
+    .top-bar {
+      .top-bar-section {
+        ul {
+          li {
+            a {
+              color: $white;
+              text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.transparent {
+  background-color: transparent;
 }

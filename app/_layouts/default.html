@@ -14,7 +14,7 @@
         <!-- endbuild -->
     </head>
     <body>
-    <!--<div id="naia-notice" style="display: none;">-->
+        <!--<div id="naia-notice" style="display: none;">-->
         <!--<div class="row">-->
         <!--<div class="large-12">-->
         <!--If travelling to the Philippines, please avoid connecting flights to Ninoy Aquino International Airport (NAIA) in Manila.-->
@@ -22,38 +22,49 @@
         <!--<a class="right dismiss-naia" href="javascript:void(0);">Dismiss</a>-->
         <!--</div>-->
         <!--</div>-->
-    <!--</div>-->
-    <!--<nav id="main-nav" class="nav">-->
-        <!--<div class="content">-->
-        <!--<div data-magellan-expedition="fixed" class="nav">-->
-            <!--<dl class="sub-nav">-->
-                <!--<dd data-magellan-arrival="venue"><a href="#venue">Venue</a></dd>-->
-                <!--<dd data-magellan-arrival="entourage"><a href="#entourage">Our Entourage</a></dd>-->
-                <!--<dd data-magellan-arrival="guest-info"><a href="#guest-info">Guest Information</a></dd>-->
-                <!--<dd data-magellan-arrival="rsvp"><a href="#rsvp">RSVP</a></dd>-->
-                <!--<dd data-magellan-arrival="contact"><a href="#contact">Contact Us</a></dd>-->
-            <!--</dl>-->
         <!--</div>-->
-        <!--</div>-->
-    <!--</nav>-->
-    <div class="site">
-      {{ content }}
-    </div>
-    <div class="show-for-small-only" id="narrow-detector"></div>
-    <!-- build:js(app) /js/scripts.js -->
-    <script src="/_bower_components/cookies-js/dist/cookies.js"></script>
-    <script src="/_bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/_bower_components/fastclick/lib/fastclick.js"></script>
-    <script src="/_bower_components/foundation/js/foundation.js"></script>
-    <!--<script src="/_bower_components/foundation/js/foundation/foundation.magellan.js"></script>-->
-    <script src="/_bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
-    <script src="/_bower_components/gsap/src/uncompressed/TweenMax.js"></script>
-    <script src="/_bower_components/gsap/src/uncompressed/TimelineMax.js"></script>
-    <script src="/_bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
-    <script type="text/javascript">
-        $(document).foundation();
-    </script>
-    <script src="/js/main.js"></script>
-    <!-- endbuild -->
+        <div class="sticky contain-to-grid fixed nav-wrapper transparent">
+            <nav class="top-bar">
+                <section class="top-bar-section">
+                    <ul>
+                        <li>
+                            <a href="#venue">Venue</a>
+                        </li>
+                        <li>
+                            <a href="#entourage">Our Entourage</a>
+                        </li>
+                        <li>
+                            <a href="#guest-info">Guest Information</a>
+                        </li>
+                        <li>
+                            <a href="#rsvp">RSVP</a>
+                        </li>
+                        <li>
+                            <a href="#contact">Contact Us</a>
+                        </li>
+                        <li class="toggle-topbar"><a href="#"><span>Menu</span></a></li>
+                    </ul>
+                </section>
+            </nav>
+        </div>
+        <div class="site">
+            {{ content }}
+        </div>
+        <div class="show-for-small-only" id="narrow-detector"></div>
+        <!-- build:js(app) /js/scripts.js -->
+        <script src="/_bower_components/cookies-js/dist/cookies.js"></script>
+        <script src="/_bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="/_bower_components/fastclick/lib/fastclick.js"></script>
+        <script src="/_bower_components/foundation/js/foundation.js"></script>
+        <!--<script src="/_bower_components/foundation/js/foundation/foundation.magellan.js"></script>-->
+        <script src="/_bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+        <script src="/_bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+        <script src="/_bower_components/gsap/src/uncompressed/TimelineMax.js"></script>
+        <script src="/_bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+        <script type="text/javascript">
+$(document).foundation();
+        </script>
+        <script src="/js/main.js"></script>
+        <!-- endbuild -->
     </body>
 </html>

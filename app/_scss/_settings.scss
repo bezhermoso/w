@@ -89,7 +89,7 @@ $include-html-global-classes: $include-html-classes;
 // We use these to define default font stacks
 $font-family-sans-serif: "Helvetica Neue", "Gyre", Helvetica, Roboto, Arial, sans-serif;
 $font-family-header: "Din";
-// $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+ $font-family-serif: "SortsMillGoudy-Regular", Georgia, Cambria, "Times New Roman", Times, serif;
 $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 
 // We use these to define default font weights
@@ -127,7 +127,7 @@ $white       : #FFFFFF;
 // We use these to control various global styles
 // $body-bg: $white;
 // $body-font-color: $jet;
-// $body-font-family: $font-family-sans-serif;
+ $body-font-family: $font-family-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
 
@@ -1402,8 +1402,8 @@ $button-font-med: rem-calc(20);
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $oil;
-// $topbar-bg: $topbar-bg-color;
+ $topbar-bg-color: rgba(0, 0, 0, 0);
+ $topbar-bg: $topbar-bg-color;
 
 // Height and margin
 // $topbar-height: rem-calc(45);

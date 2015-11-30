@@ -40,6 +40,16 @@
     });
   }
 
+  var checkScrollTop = function () {
+    var scrollPos = $(window).scrollTop();
+    if (scrollPos) {
+      $('.nav-wrapper').removeClass('transparent');
+    } else {
+      $('.nav-wrapper').addClass('transparent');
+    }
+  }
 
+  checkScrollTop();
+  $(window).scroll(checkScrollTop);
 
 })(jQuery);

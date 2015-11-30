@@ -1,16 +1,27 @@
 @import "fonts";
-@import "foundation";
 
 $mint-green: #C2DFD4;
 $coral: #FE8A80;
 $shadow-color : #FFFFFF;
 $gold: #FFE398;
 $dirty-gold: #A1997A;
-@import "_settings";
 
+@import "settings";
+@import "foundation";
+@import "font-awesome";
 @import "nav";
 
 body {
+  font-family: "SortsMillGoudy-Regular";
+  font-size: rem-calc(20);
+}
+
+address {
+  font-size: rem-calc(20);
+  font-style: normal;
+}
+
+.site {
   /* Letterpress effect start */
   text-shadow: 0 1px 1px $shadow-color;
   background-color: lighten($mint-green, 10);
@@ -19,14 +30,277 @@ body {
 }
 
 h1 {
-  font-family: "Ecuyer";
+  font-family: "VeryBerryPro-Regular";
+}
+
+#timer {
+  font-family: "SortsMillGoudy-Regular";
+  color: $white;
+  margin-bottom: 10px;
+  .segment {
+    display: inline-block;
+    span {
+      margin: 0 20px;
+      font-size: rem-calc(50);
+      display: block;
+    }
+    span.segment-label {
+      display: block;
+      font-size: rem-calc(30);
+      color: darken($white, 0);
+      font-family: "VeryBerryPro-Regular";
+    }
+  }
+}
+
+@mixin slant-up($color) {
+  background-color: $color;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -56px;
+    width: 100%;
+    height: 310px;
+    background: $color;
+    -webkit-transform: skewY(-5deg);
+    -moz-transform: skewY(-5deg);
+    -ms-transform: skewY(-5deg);
+    -o-transform: skewY(-5deg);
+    transform: skewY(-5deg);
+    -webkit-backface-visibility: hidden;
+  }
+}
+
+@mixin slant-down($color) {
+  background-color: $color;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -56px;
+    width: 100%;
+    height: 310px;
+    background: $color;
+    -webkit-transform: skewY(5deg);
+    -moz-transform: skewY(5deg);
+    -ms-transform: skewY(5deg);
+    -o-transform: skewY(5deg);
+    transform: skewY(5deg);
+    -webkit-backface-visibility: hidden;
+  }
 }
 
 section#banner {
-  background-image: url('/img/event-banner.png');
-  background-size: 100% auto;
-  height: 100vh;
+  text-align: center;
+  background: url('/img/ring.png') no-repeat center center;
+  background-size: cover;
+  height: 95vh;
+  padding: 50px 20px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  color: $white;
+
+  /*&:after {*/
+  /*content: " ";*/
+  /*border-top: 20px solid red;*/
+  /*border-bottom: none;*/
+  /*border-right: 20px solid green;*/
+  /*}*/
+
+  h1 {
+    font-family: "VeryBerryPro-Regular";
+    text-align: center;
+    margin-top: 30px;
+    font-size: rem-calc(70);
+    color: $white;
+  }
+
+  h2 {
+    font-family: "SortsMillGoudy-Regular";
+    text-align: center;
+    bottom: 30px;
+    font-size: rem-calc(45);
+    color: $white;
+  }
 }
+
+section#venue {
+  /*height: 100vh;*/
+  background-color: $mint-green;
+  position: relative;
+  color: $white;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -56px;
+    width: 100%;
+    height: 200px;
+    background: $mint-green;
+    -webkit-transform: skewY(5deg);
+    -moz-transform: skewY(5deg);
+    -ms-transform: skewY(5deg);
+    -o-transform: skewY(5deg);
+    transform: skewY(5deg);
+    -webkit-backface-visibility: hidden;
+  }
+
+  div#wedding {
+    position: relative;
+    /*margin-bottom: 100px;*/
+    div.row {
+      z-index: 2;
+    }
+  }
+
+  div#reception {
+    $reception-bg-color: darken($mint-green, 5);
+    background-color: $reception-bg-color;
+    position: relative;
+    margin-top: 200px;
+    padding-bottom: 200px;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -56px;
+      width: 100%;
+      height: 310px;
+      background: $reception-bg-color;
+      -webkit-transform: skewY(-5deg);
+      -moz-transform: skewY(-5deg);
+      -ms-transform: skewY(-5deg);
+      -o-transform: skewY(-5deg);
+      transform: skewY(-5deg);
+      -webkit-backface-visibility: hidden;
+    }
+  }
+
+  $venue-text-color: darken($mint-green, 50);
+
+  .venue-caption {
+    color: $venue-text-color;
+    font-size: rem-calc(60);
+    font-family: "VeryBerryPro-Regular";
+    margin-top: -30px;
+  }
+
+  .venue-image {
+    border: 4px solid lighten($mint-green, 5);
+    @extend .show-for-medium-up;
+  }
+
+  .venue-address {
+    color: $venue-text-color;
+    h2 {
+      color: $venue-text-color;
+    }
+    address {
+      font-size: rem-calc(20);
+      font-style: normal;
+    }
+  }
+}
+
+section#entourage {
+  @include slant-down($coral);
+
+  $entourage-text-color: darken($coral, 35);
+
+  color: $entourage-text-color;
+  /*text-shadow: 0 1px 1px lighten($coral, 70);*/
+  text-shadow: none;
+
+  .row .columns {
+    text-align: center;
+  }
+
+  .entourage-section {
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    text-align: left;
+    margin-top: -30px;
+    color: $entourage-text-color;
+    font-size: rem-calc(60);
+  }
+
+  .ampersand {
+    text-align: center;
+    font-size: rem-calc(80);
+    font-family: "VeryBerryPro-Regular";
+  }
+
+  .role {
+    font-size: rem-calc(35);
+    font-family: "Din";
+    text-align: center;
+  }
+
+  .name {
+    font-size: rem-calc(20);
+    text-align: center;
+  }
+
+  padding-bottom: 100px;
+}
+
+section#guest-info {
+  $guest-info-text-color: darken($mint-green, 30);
+  @include slant-up($mint-green);
+  h1 {
+    text-align: right;
+    margin-top: -30px;
+    color: $guest-info-text-color;
+    font-size: rem-calc(60);
+  }
+  #naia-warning {
+    position: relative;
+    padding: 50px 0;
+    background-color: lighten($mint-green, 10);
+    color: $guest-info-text-color;
+    a {
+      color: $guest-info-text-color;
+      text-decoration: underline;
+    }
+  }
+
+  #hotels {
+    text-align: center;
+    margin-top: 40px;
+    h3 {
+      font-family: "VeryBerryPro-Regular";
+      color: $guest-info-text-color;
+      font-size: rem-calc(50);
+    }
+    ul.hotel-list {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+      li {
+        margin-left: 0;
+        padding-left: 0;
+        margin-bottom: 20px;
+      }
+      h4 {
+        color: $guest-info-text-color;
+        font-family: "Din";
+        font-size: rem-calc(40);
+      }
+      address {
+        color: $guest-info-text-color;
+      }
+      .mint-button {
+        background-color: lighten($mint-green, 10);
+      }
+    }
+  }
+}
+
 
 .button {
   text-shadow: none;
@@ -44,332 +318,313 @@ section#banner {
   font-family: $header-font-family-alt;
 }
 
-section#top {
-  height: 100vh;
 
-  #nuptials {
-    text-align: center;
-    padding-top: 25vh;
-    h2 {
-      font-family: "SortsMillGoudy-Regular";
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      color: $dirty-gold;
-      z-index: 1;
-    }
-  }
+/*section#top {*/
+/*height: 100vh;*/
 
-  #info {
-    text-align: center;
-    color: $dirty-gold;
-    #wedding-date {
-      color: $dirty-gold;
-      font-family: "Ecuyer";
-      font-size: rem-calc(30);
-      color: $coral;
-      margin-top: 20px;
-    }
-    #venue {
-      color: $dirty-gold;
-      font-family: "SortsMillGoudy-Regular";
-    }
-  }
-}
+/*#nuptials {*/
+/*text-align: center;*/
+/*padding-top: 25vh;*/
+/*h2 {*/
+/*font-family: "SortsMillGoudy-Regular";*/
+/*text-transform: uppercase;*/
+/*letter-spacing: 5px;*/
+/*color: $dirty-gold;*/
+/*z-index: 1;*/
+    /*}*/
+  /*}*/
 
-#timer {
-  font-family: "Ecuyer";
-  color: $coral;
-  margin-bottom: 40px;
-  .segment {
-    display: inline-block;
-    span {
-      margin: 0 20px;
-      font-size: rem-calc(100);
-      display: block;
-    }
-    span.segment-label {
-      display: block;
-      font-size: rem-calc(40);
-      margin-top: -30px;
-      color: darken($coral, 0);
-      font-family: "VeryBerryPro-Regular";
-    }
-  }
-}
+/*#info {*/
+/*text-align: center;*/
+/*color: $dirty-gold;*/
+/*#wedding-date {*/
+/*color: $dirty-gold;*/
+/*font-family: "Ecuyer";*/
+/*font-size: rem-calc(30);*/
+/*color: $coral;*/
+/*margin-top: 20px;*/
+    /*}*/
+/*#venue {*/
+/*color: $dirty-gold;*/
+/*font-family: "SortsMillGoudy-Regular";*/
+    /*}*/
+  /*}*/
+/*}*/
 
-@mixin _triangle() {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  position: absolute;
-}
 
-@mixin triangle-top-left ($width, $color) {
-  @include _triangle();
-  border-width: $width $width 0 0;
-  border-color: $color transparent transparent transparent;
-  top: 0;
-  left: 0;
-}
+/*@mixin _triangle() {*/
+/*width: 0;*/
+/*height: 0;*/
+/*border-style: solid;*/
+/*position: absolute;*/
+/*}*/
 
-@mixin triangle-top-right ($width, $color) {
-    @include _triangle();
-    border-width: 0 $width $width 0;
-    border-color: transparent $color transparent transparent;
-    top: 0;
-    right: 0;
-}
+/*@mixin triangle-top-left ($width, $color) {*/
+/*@include _triangle();*/
+/*border-width: $width $width 0 0;*/
+/*border-color: $color transparent transparent transparent;*/
+/*top: 0;*/
+/*left: 0;*/
+/*}*/
 
-@mixin triangle-bottom-right ($width, $color) {
-    @include _triangle();
-    border-width: 0 0 $width $width;
-    border-color: transparent transparent $color transparent;
-    bottom: 0;
-    right: 0;
-}
+/*@mixin triangle-top-right ($width, $color) {*/
+/*@include _triangle();*/
+/*border-width: 0 $width $width 0;*/
+/*border-color: transparent $color transparent transparent;*/
+/*top: 0;*/
+/*right: 0;*/
+/*}*/
 
-@mixin triangle-bottom-left ($width, $color) {
-    @include _triangle();
-    border-width: $width 0 0 $width;
-    border-color: transparent transparent transparent $color;
-    bottom: 0;
-    left: 0;
-}
+/*@mixin triangle-bottom-right ($width, $color) {*/
+/*@include _triangle();*/
+/*border-width: 0 0 $width $width;*/
+/*border-color: transparent transparent $color transparent;*/
+/*bottom: 0;*/
+/*right: 0;*/
+/*}*/
 
-$border-triangle-width: 400px;
-$border-triangle-color: darken($mint-green, 5);
-$border-triangle-red: red($border-triangle-color);
-$border-triangle-green: green($border-triangle-color);
-$border-triangle-blue: blue($border-triangle-color);
-$border-triangle-alpha: rgba($border-triangle-red, $border-triangle-green, $border-triangle-blue, 0.5);
+/*@mixin triangle-bottom-left ($width, $color) {*/
+/*@include _triangle();*/
+/*border-width: $width 0 0 $width;*/
+/*border-color: transparent transparent transparent $color;*/
+/*bottom: 0;*/
+/*left: 0;*/
+/*}*/
 
-.border-triangle {
+/*$border-triangle-width: 400px;*/
+/*$border-triangle-color: darken($mint-green, 5);*/
+/*$border-triangle-red: red($border-triangle-color);*/
+/*$border-triangle-green: green($border-triangle-color);*/
+/*$border-triangle-blue: blue($border-triangle-color);*/
+/*$border-triangle-alpha: rgba($border-triangle-red, $border-triangle-green, $border-triangle-blue, 0.5);*/
 
-  z-index: -1;
-  &.top-left {
-    @include triangle-top-left($border-triangle-width, $border-triangle-alpha);
-  }
+/*.border-triangle {*/
 
-  &.top-right {
-    @include triangle-top-right($border-triangle-width, $border-triangle-alpha);
-  }
+/*z-index: -1;*/
+/*&.top-left {*/
+/*@include triangle-top-left($border-triangle-width, $border-triangle-alpha);*/
+  /*}*/
 
-  &.bottom-left {
-    @include triangle-bottom-left($border-triangle-width, $border-triangle-alpha);
-  }
+/*&.top-right {*/
+/*@include triangle-top-right($border-triangle-width, $border-triangle-alpha);*/
+  /*}*/
 
-  &.bottom-right {
-    @include triangle-bottom-right($border-triangle-width, $border-triangle-alpha);
-  }
-}
+/*&.bottom-left {*/
+/*@include triangle-bottom-left($border-triangle-width, $border-triangle-alpha);*/
+  /*}*/
 
-$coral-background: lighten($coral, 0.2);
-$coral-red: red($coral-background);
-$coral-green: green($coral-background);
-$coral-blue: blue($coral-background);
+/*&.bottom-right {*/
+/*@include triangle-bottom-right($border-triangle-width, $border-triangle-alpha);*/
+  /*}*/
+/*}*/
 
-$mint-green-background: lighten($mint-green, 0.2);
-$mint-green-red: red($mint-green-background);
-$mint-green-green: green($mint-green-background);
-$mint-green-blue: blue($mint-green-background);
+/*$coral-background: lighten($coral, 0.2);*/
+/*$coral-red: red($coral-background);*/
+/*$coral-green: green($coral-background);*/
+/*$coral-blue: blue($coral-background);*/
 
-section#venue {
-  .venue-item {
-    height: 100vh;
-    min-height: 500px;
-    position: relative;
-    width: 100%;
-    .content {
-      position: absolute;
-      top: 20px; bottom: 20px; right: 20px; left: 20px;
-      text-align: center;
-      h1 {
-        font-family: "Ecuyer";
-        margin-top: 30vh;
-      }
-      address {
-        font-family: "SortsMillGoudy-Regular";
-        font-size: rem-calc(25);
-        font-style: normal;
-        margin-bottom: 50px;
-      }
-    }
-    .background {
-      background-size: cover;
-      background-position: center;
-      width: 100%;
-      height: 100vh;
-      min-height: 500px;
-      position: absolute;
-      &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-      }
-    }
-  }
-  #ceremony {
-    .content {
-      border: 4px solid darken($coral, 40);
-      text-shadow: 0 1px 1px $coral;
-      color: darken($coral, 40);
-      h1 {
-        color: darken($coral, 40);
-      }
-    }
-    .background {
-      background-image: url('/img/st-therese-mono.jpg');
-      &:after {
-        background-color: rgba($coral-red, $coral-green, $coral-blue, 0.85);
-      }
-    }
-  }
-  #reception {
-    .content {
-      border: 4px solid darken($mint-green, 40);
-      text-shadow: 0 1px 1px $mint-green;
-      color: darken($mint-green, 40);
-      h1 {
-        color: darken($mint-green, 40);
-      }
-    }
-    .background {
-      background-image: url('/img/pavilion-mono.jpg');
-      &:after {
-        background-color: rgba($mint-green-red, $mint-green-green, $mint-green-blue, 0.85);
-      }
-    }
-  }
-}
+/*$mint-green-background: lighten($mint-green, 0.2);*/
+/*$mint-green-red: red($mint-green-background);*/
+/*$mint-green-green: green($mint-green-background);*/
+/*$mint-green-blue: blue($mint-green-background);*/
 
-@media #{$small-only} {
+/*section#venue {*/
+/*.venue-item {*/
+/*height: 100vh;*/
+/*min-height: 500px;*/
+/*position: relative;*/
+/*width: 100%;*/
+/*.content {*/
+/*position: absolute;*/
+/*top: 20px; bottom: 20px; right: 20px; left: 20px;*/
+/*text-align: center;*/
+/*h1 {*/
+/*font-family: "Ecuyer";*/
+/*margin-top: 30vh;*/
+      /*}*/
+/*address {*/
+/*font-family: "SortsMillGoudy-Regular";*/
+/*font-size: rem-calc(25);*/
+/*font-style: normal;*/
+/*margin-bottom: 50px;*/
+      /*}*/
+    /*}*/
+/*.background {*/
+/*background-size: cover;*/
+/*background-position: center;*/
+/*width: 100%;*/
+/*height: 100vh;*/
+/*min-height: 500px;*/
+/*position: absolute;*/
+/*&:after {*/
+/*content: "";*/
+/*position: absolute;*/
+/*top: 0;*/
+/*bottom: 0;*/
+/*right: 0;*/
+/*left: 0;*/
+      /*}*/
+    /*}*/
+  /*}*/
+/*#ceremony {*/
+/*.content {*/
+/*border: 4px solid darken($coral, 40);*/
+/*text-shadow: 0 1px 1px $coral;*/
+/*color: darken($coral, 40);*/
+/*h1 {*/
+/*color: darken($coral, 40);*/
+      /*}*/
+    /*}*/
+/*.background {*/
+/*background-image: url('/img/st-therese-mono.jpg');*/
+/*&:after {*/
+/*background-color: rgba($coral-red, $coral-green, $coral-blue, 0.85);*/
+      /*}*/
+    /*}*/
+  /*}*/
+/*#reception {*/
+/*.content {*/
+/*border: 4px solid darken($mint-green, 40);*/
+/*text-shadow: 0 1px 1px $mint-green;*/
+/*color: darken($mint-green, 40);*/
+/*h1 {*/
+/*color: darken($mint-green, 40);*/
+      /*}*/
+    /*}*/
+/*.background {*/
+/*background-image: url('/img/pavilion-mono.jpg');*/
+/*&:after {*/
+/*background-color: rgba($mint-green-red, $mint-green-green, $mint-green-blue, 0.85);*/
+      /*}*/
+    /*}*/
+  /*}*/
+/*}*/
 
-  section#top {
-    height: 100vh;
+/*@media #{$small-only} {*/
 
-    #nuptials {
-      padding-top: 10vh;
-    }
+/*section#top {*/
+/*height: 100vh;*/
 
-    #info {
-      #wedding-date {
-        font-size: rem-calc(20);
-        margin-top: 10px;
-      }
-      #venue {
-      }
-    }
-  }
+/*#nuptials {*/
+/*padding-top: 10vh;*/
+    /*}*/
 
-  #timer {
-    margin-bottom: 20px;
-    .segment {
-      span {
-        font-size: rem-calc(50);
-      }
-      span.segment-label {
-        font-size: rem-calc(20);
-        margin-top: -10px;
-      }
-    }
-  }
+/*#info {*/
+/*#wedding-date {*/
+/*font-size: rem-calc(20);*/
+/*margin-top: 10px;*/
+      /*}*/
+/*#venue {*/
+      /*}*/
+    /*}*/
+  /*}*/
 
-  .border-triangle {
+/*#timer {*/
+/*margin-bottom: 20px;*/
+/*.segment {*/
+/*span {*/
+/*font-size: rem-calc(50);*/
+      /*}*/
+/*span.segment-label {*/
+/*font-size: rem-calc(20);*/
+/*margin-top: -10px;*/
+      /*}*/
+    /*}*/
+  /*}*/
 
-    $mobile-triangle-width: 250px;
-    $mobile-triangle-color: darken($mint-green, 5);
-    $mobile-triangle-red: red($mobile-triangle-color);
-    $mobile-triangle-green: green($mobile-triangle-color);
-    $mobile-triangle-blue: blue($mobile-triangle-color);
-    $mobile-triangle-alpha: rgba($mobile-triangle-red, $mobile-triangle-green, $mobile-triangle-blue, 0.5);
-    &.top-left {
-      @include triangle-top-left($mobile-triangle-width, $mobile-triangle-alpha);
-    }
+/*.border-triangle {*/
 
-    &.top-right {
-      @include triangle-top-right($mobile-triangle-width, $mobile-triangle-alpha);
-    }
+/*$mobile-triangle-width: 250px;*/
+/*$mobile-triangle-color: darken($mint-green, 5);*/
+/*$mobile-triangle-red: red($mobile-triangle-color);*/
+/*$mobile-triangle-green: green($mobile-triangle-color);*/
+/*$mobile-triangle-blue: blue($mobile-triangle-color);*/
+/*$mobile-triangle-alpha: rgba($mobile-triangle-red, $mobile-triangle-green, $mobile-triangle-blue, 0.5);*/
+/*&.top-left {*/
+/*@include triangle-top-left($mobile-triangle-width, $mobile-triangle-alpha);*/
+    /*}*/
 
-    &.bottom-left {
-      @include triangle-bottom-left($mobile-triangle-width, $mobile-triangle-alpha);
-    }
+/*&.top-right {*/
+/*@include triangle-top-right($mobile-triangle-width, $mobile-triangle-alpha);*/
+    /*}*/
 
-    &.bottom-right {
-      @include triangle-bottom-right($mobile-triangle-width, $mobile-triangle-alpha);
-    }
-  }
+/*&.bottom-left {*/
+/*@include triangle-bottom-left($mobile-triangle-width, $mobile-triangle-alpha);*/
+    /*}*/
 
-  section#venue {
-    .venue-item {
-      height: 100vh;
-      position: relative;
-      width: 100%;
-      .content {
-        top: 20px; bottom: 20px; right: 20px; left: 20px;
-        h1 {
-          font-family: "Ecuyer";
-          margin-top: 20vh;
-          font-size: rem-calc(20);
-        }
-        address {
-          font-size: rem-calc(15);
-          margin-bottom: 100px;
-        }
-      }
-    }
-  }
-}
+/*&.bottom-right {*/
+/*@include triangle-bottom-right($mobile-triangle-width, $mobile-triangle-alpha);*/
+    /*}*/
+  /*}*/
 
-$balloon-color: darken($mint-green, 2);
-$balloon-red: red($balloon-color);
-$balloon-green: green($balloon-color);
-$balloon-blue: blue($balloon-color);
-$balloon-alpha: rgba($balloon-red, $balloon-green, $balloon-blue, 50);
+/*section#venue {*/
+/*.venue-item {*/
+/*height: 100vh;*/
+/*position: relative;*/
+/*width: 100%;*/
+/*.content {*/
+/*top: 20px; bottom: 20px; right: 20px; left: 20px;*/
+/*h1 {*/
+/*font-family: "Ecuyer";*/
+/*margin-top: 20vh;*/
+/*font-size: rem-calc(20);*/
+        /*}*/
+/*address {*/
+/*font-size: rem-calc(15);*/
+/*margin-bottom: 100px;*/
+        /*}*/
+      /*}*/
+    /*}*/
+  /*}*/
+/*}*/
 
-#tourist-balloon {
-  display: block;
-  position: fixed;
-  background-color: $mint-green;
-  color: $white;
-  padding: 10px;
-  width: 200px;
-  font-size: 16px;
-  /*box-shadow: 0px 0px 5px $balloon-alpha;*/
-  box-shadow: 2px 2px darken($mint-green, 20);
-  bottom: 10px;
-  right: 10px;
-  text-shadow: none;
-}
+/*$balloon-color: darken($mint-green, 2);*/
+/*$balloon-red: red($balloon-color);*/
+/*$balloon-green: green($balloon-color);*/
+/*$balloon-blue: blue($balloon-color);*/
+/*$balloon-alpha: rgba($balloon-red, $balloon-green, $balloon-blue, 50);*/
 
-section#accomodations {
-  padding: 50px;
-  h1 {
+/*#tourist-balloon {*/
+/*display: block;*/
+/*position: fixed;*/
+/*background-color: $mint-green;*/
+/*color: $white;*/
+/*padding: 10px;*/
+/*width: 200px;*/
+/*font-size: 16px;*/
+/*[>box-shadow: 0px 0px 5px $balloon-alpha;<]*/
+/*box-shadow: 2px 2px darken($mint-green, 20);*/
+/*bottom: 10px;*/
+/*right: 10px;*/
+/*text-shadow: none;*/
+/*}*/
 
-    text-align: center;
-    color: darken($coral, 10);
+/*section#accomodations {*/
+/*padding: 50px;*/
+/*h1 {*/
 
-    &.under-glyph {
-      margin-top: 10px;
-    }
-  }
-}
+/*text-align: center;*/
+/*color: darken($coral, 10);*/
 
-div#naia-notice {
-  position: fixed;
-  background-color: #E64949;
-  text-shadow: none;
-  font-size: rem-calc(14);
-  z-index: 999;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 10px 20px;
-  color: $white;
-   a {
-     color: $white;
-     text-decoration: underline;
-   }
-}
+/*&.under-glyph {*/
+/*margin-top: 10px;*/
+    /*}*/
+  /*}*/
+/*}*/
+
+/*div#naia-notice {*/
+/*position: fixed;*/
+/*background-color: #E64949;*/
+/*text-shadow: none;*/
+/*font-size: rem-calc(14);*/
+/*z-index: 999;*/
+/*top: 0;*/
+/*left: 0;*/
+/*right: 0;*/
+/*padding: 10px 20px;*/
+/*color: $white;*/
+/*a {*/
+/*color: $white;*/
+/*text-decoration: underline;*/
+   /*}*/
+/*}*/
