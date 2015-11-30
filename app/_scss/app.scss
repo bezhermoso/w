@@ -208,7 +208,8 @@ section#venue {
 section#entourage {
   @include slant-down($coral);
 
-  $entourage-text-color: darken($coral, 35);
+  /*$entourage-text-color: darken($coral, 35);*/
+  $entourage-text-color: #99423B;
 
   color: $entourage-text-color;
   /*text-shadow: 0 1px 1px lighten($coral, 70);*/
@@ -267,6 +268,9 @@ section#guest-info {
       color: $guest-info-text-color;
       text-decoration: underline;
     }
+    ol {
+      font-size: rem-calc(20);
+    }
   }
 
   #hotels {
@@ -297,6 +301,31 @@ section#guest-info {
       .mint-button {
         background-color: lighten($mint-green, 10);
       }
+    }
+    padding-bottom: 100px;
+  }
+
+  #cebu-tourism-video {
+    $tourism-bg-color: darken($mint-green, 10);
+    $tourism-text-color: darken($tourism-bg-color, 30);
+    color: $tourism-text-color;
+    @include slant-down($tourism-bg-color);
+    h1 {
+      font-family: "VeryBerryPro-Regular";
+      text-align: left;
+      margin-top: -50px;
+      color: $tourism-text-color;
+    }
+    
+    .video-wrapper {
+      position: relative;
+      background-color: darken($tourism-bg-color, 10);
+      height: 480px;
+    }
+    padding-bottom: 100px;
+    .tbd {
+      font-size: rem-calc(40);
+      margin-top: 100px;
     }
   }
 }
