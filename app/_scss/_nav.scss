@@ -22,6 +22,14 @@
             color: darken($mint-green, 40);
             font-size: rem-calc(16);
           }
+
+          @media #{$small-only} {
+            display: none;
+
+            &.toggle-topbar {
+              display: table-cell;
+            }
+          }
         }
       }
     }
@@ -42,8 +50,28 @@
       }
     }
   }
+
+  .top-bar.expanded {
+    background-color: $white !important;
+    .top-bar-section {
+      ul {
+        display: block;
+        li {
+          display: block;
+          a {
+            color: #498c73 !important;
+            text-shadow: none;
+          }
+        }
+      }
+    }
+  }
 }
 
 .transparent {
   background-color: transparent;
+}
+
+.f-topbar-fixed {
+  padding-top: 0px !important;
 }
