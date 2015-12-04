@@ -1,4 +1,5 @@
 (function ($) {
+  $(document).foundation();
   "use strict";
 
   var weddingDate = new Date(Date.UTC(2016, 3, 10, 22, 0, 0)),
