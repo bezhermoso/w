@@ -2,7 +2,7 @@
 .nav-wrapper {
   transition: all 0.3s ease-in-out;
   position: fixed !important;
-  /*border-bottom: 3px solid $white;*/
+  border-bottom: 3px solid $white;
   background-color: $white;
   .top-bar {
     .top-bar-section {
@@ -54,6 +54,7 @@
   .top-bar.expanded {
     background-color: $white !important;
     .top-bar-section {
+      margin-top: 0;
       ul {
         display: block;
         li {
