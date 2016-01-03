@@ -57,7 +57,8 @@
   $("[data-slow-scroll]").click(function (e) {
     e.preventDefault();
     var $elem = $(this);
-    var $target = $($elem.attr("href"));
+    var selector = $elem.data("slow-scroll") || $elem.attr("href");
+    var $target = $(selector);
     var position = $target.position();
     var margin = 120;
     var scrollTo = position.top - margin;
