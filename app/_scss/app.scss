@@ -195,14 +195,21 @@ section#entourage {
     text-align: center;
   }
 
-  .row.primary-sponsors {
-    .columns:nth-child(1) {
-      text-align: right;
-    }
-    .columns:nth-child(2) {
-      text-align: left;
-    }
-  }
+  /*.row.primary-sponsors {*/
+
+    /*.columns:nth-child(1), .columns:nth-child(2) {*/
+      /*text-align: center;*/
+    /*}*/
+
+    /*@media #{$medium-up} {*/
+      /*.columns:nth-child(1) {*/
+        /*text-align: right;*/
+      /*}*/
+      /*.columns:nth-child(2) {*/
+        /*text-align: left;*/
+      /*}*/
+    /*}*/
+  /*}*/
 
   .entourage-section {
     margin-bottom: 30px;
@@ -225,6 +232,8 @@ section#entourage {
     font-size: rem-calc(35);
     font-family: "Din";
     text-align: center;
+    display: inline-block;
+    margin-bottom: 12px;
   }
 
   .name {
