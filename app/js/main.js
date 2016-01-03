@@ -1,6 +1,7 @@
 (function ($) {
-  $(document).foundation();
   "use strict";
+
+  $(document).foundation();
 
   var weddingDate = new Date(Date.UTC(2016, 3, 10, 22, 0, 0)),
   $days = $('.days'),
@@ -52,5 +53,18 @@
 
   checkScrollTop();
   $(window).scroll(checkScrollTop);
+
+  $("[data-slow-scroll]").click(function (e) {
+    e.preventDefault();
+    var $elem = $(this);
+    var $target = $($elem.attr("href"));
+    var position = $target.position();
+    var margin = 120;
+    var scrollTo = position.top - margin;
+    $("html, body").animate({
+      scrollTop: scrollTo 
+    });
+  });
+
 
 })(jQuery);
