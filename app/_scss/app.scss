@@ -136,21 +136,7 @@ section#venue {
   position: relative;
   color: $white;
 
-  &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: -56px;
-    width: 100%;
-    height: 200px;
-    background: $mint-green;
-    -webkit-transform: skewY(5deg);
-    -moz-transform: skewY(5deg);
-    -ms-transform: skewY(5deg);
-    -o-transform: skewY(5deg);
-    transform: skewY(5deg);
-    -webkit-backface-visibility: hidden;
-  }
+  @include slant-down($mint-green);
 
   div#wedding {
     position: relative;
@@ -162,25 +148,11 @@ section#venue {
 
   div#reception {
     $reception-bg-color: darken($mint-green, 5);
-    background-color: $reception-bg-color;
+    /*background-color: $reception-bg-color;*/
     position: relative;
     margin-top: 200px;
     padding-bottom: 200px;
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: -56px;
-      width: 100%;
-      height: 310px;
-      background: $reception-bg-color;
-      -webkit-transform: skewY(-5deg);
-      -moz-transform: skewY(-5deg);
-      -ms-transform: skewY(-5deg);
-      -o-transform: skewY(-5deg);
-      transform: skewY(-5deg);
-      -webkit-backface-visibility: hidden;
-    }
+    @include slant-up($reception-bg-color);
   }
 
   $venue-text-color: darken($mint-green, 50);
@@ -221,6 +193,15 @@ section#entourage {
 
   .row .columns {
     text-align: center;
+  }
+
+  .row.primary-sponsors {
+    .columns:nth-child(1) {
+      text-align: right;
+    }
+    .columns:nth-child(2) {
+      text-align: left;
+    }
   }
 
   .entourage-section {
@@ -285,15 +266,15 @@ section#guest-info {
       color: $guest-info-text-color;
       font-size: rem-calc(50);
     }
-    ul.hotel-list {
-      list-style: none;
-      margin-left: 0;
-      padding-left: 0;
-      li {
-        margin-left: 0;
-        padding-left: 0;
-        margin-bottom: 20px;
-      }
+    .hotel-list {
+      /*list-style: none;*/
+      /*margin-left: 0;*/
+      /*padding-left: 0;*/
+      /*li {*/
+        /*margin-left: 0;*/
+        /*padding-left: 0;*/
+        /*margin-bottom: 20px;*/
+      /*}*/
       h4 {
         color: $guest-info-text-color;
         font-family: "Din";
