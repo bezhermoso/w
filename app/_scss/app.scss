@@ -284,6 +284,9 @@ section#guest-info {
         /*padding-left: 0;*/
         /*margin-bottom: 20px;*/
       /*}*/
+      .row {
+        margin-bottom: 20px;
+      }
       h4 {
         color: $guest-info-text-color;
         font-family: "Din";
@@ -293,6 +296,7 @@ section#guest-info {
         color: $guest-info-text-color;
       }
       .mint-button {
+        margin-top: 20px;
         background-color: lighten($mint-green, 10);
       }
     }
