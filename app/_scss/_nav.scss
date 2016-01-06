@@ -6,7 +6,7 @@
   background-color: $white;
   .top-bar {
     .top-bar-section {
-      width: 600px;
+      /*width: 600px;*/
       margin: 0 auto;
       ul {
         width: 100%;
@@ -63,6 +63,7 @@
       ul {
         display: block;
         li {
+          width: auto;
           display: block;
           a {
             color: #498c73 !important;
